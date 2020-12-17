@@ -16,7 +16,7 @@ spec:
         app: web
     spec:
       containers:
-      - image: 990685572609.dkr.ecr.ap-northeast-1.amazonaws.com/hello-world:latest
+      - image: nginx
         name: mynginx
 
 ---
