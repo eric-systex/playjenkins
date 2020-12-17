@@ -1,6 +1,6 @@
 pipeline {
 
-  agent { label 'busybox' }
+  agent { label 'kubepod' }
 
   stages {
 
