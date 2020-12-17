@@ -13,8 +13,7 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-          sh 'ls /home/jenkins/minikube'
-          sh 'ls /home/jenkins/minikube/profiles/minikube'
+          kubernetesDeploy(configs: "nginx.yaml", kubeconfigId: "mykubeconfig")
         }
       }
     }
