@@ -36,7 +36,7 @@ openssl pkcs12 -export \
   -out ~/.minikube/profiles/minikube/minikube.pfx \
   -inkey ~/.minikube/profiles/minikube/apiserver.key \
   -in ~/.minikube/profiles/minikube/apiserver.crt \
-  -certfile ~/.minikube/ca.crt -passout 09350935
+  -certfile ~/.minikube/ca.crt -passout pass:09350935
 ```
 
 
