@@ -50,6 +50,10 @@ minikube mount /Users/eric/.minikube:/home/docker/minikube &
 # minikube ssh
 ```
 
+### Kubernetes Dashboard
+可以 `minikube dashboard` 啟動 Kubernetes Dashboard
+
+
 
 
 ## Jenkins
@@ -227,3 +231,14 @@ spec:
 * 註3: 若設定 minikube:8443 會有 Hostname minikube not verified 的問題
 
 
+
+## 參考
+
+* https://www.youtube.com/watch?v=V4kYbHlQYHg
+* https://github.com/justmeandopensource/playjenkins/tree/test-deploy-stage
+* https://plugins.jenkins.io/kubernetes/
+* https://stackoverflow.com/a/24326540
+* https://stackoverflow.com/questions/40720979/how-to-access-kubernetes-api-when-using-minkube
+* https://ithelp.ithome.com.tw/articles/10193237
+* https://ithelp.ithome.com.tw/articles/10193489
+* https://hub.docker.com/r/jenkinsci/jnlp-slave/
