@@ -118,6 +118,7 @@ Config Clouds > 新增雲，選擇 Kubernetes
 * Name: kubernetes
 * Kubernetes URL: https://host.docker.internal:32772 (註1)
 * Kubernetes server certificate key: [將 ca.crt 內容貼上]
+* Disable https certificate check: 勾選
 * Credentials: [選擇 minikubeconfig Credential]
 * Jenkins URL: http://host.docker.internal:8080/ (註1)
 * Jenkins tunnel: host.docker.internal:50000 (註1)
