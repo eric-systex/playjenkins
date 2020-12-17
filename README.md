@@ -129,6 +129,14 @@ Config Clouds > 新增雲，選擇 Kubernetes
     * Host path: /home/docker/minikube/
     * Mount path: /home/jenkins/minikube/
 
+![](https://i.imgur.com/ZycT7IC.png)
+![](https://i.imgur.com/jnhpiOL.png)
+![](https://i.imgur.com/kkpVYkn.png)
+![](https://i.imgur.com/S1OyEYv.png)
+![](https://i.imgur.com/Ugtdfo5.png)
+![](https://i.imgur.com/PtiiXWq.png)
+
+
 
 ### Jobs
 
