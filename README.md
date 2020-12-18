@@ -15,7 +15,7 @@ minikube start
 ### Kubernetes URL
 啟動後
 
-1. 由 `docker ps` 可以得知 minikube API server **8443** port mapping 為 **127.0.0.1:32772**
+1. 由 `docker ps` 可以得知 minikube API server **8443** port mapping 為 **127.0.0.1:32772** (**埠號不一定**)
 
 ![](https://i.imgur.com/uGZehFG.png)
 
@@ -40,14 +40,18 @@ openssl pkcs12 -export \
 ```
 
 
-### Mount Files
-將後續 apply YAML 所需的 kubeconfig 相關的 crt/key 掛載到 minikube host 中
+### ConfigMap From Files
+將後續 apply YAML 所需的 kubeconfig 相關的 crt & key（如下），以 ConfigMap 的形式儲存
+* client.key
+* client.crt
+* ca.crt
+
 
 ```
-minikube mount /Users/eric/.minikube:/home/docker/minikube &
-
-# 可進入到 minikube host 中查看確認
-# minikube ssh
+kubectl create configmap minikubeconfig \
+  --from-file=/Users/eric/.minikube/ca.crt \
+  --from-file=/Users/eric/.minikube/profiles/minikube/client.crt \
+  --from-file=/Users/eric/.minikube/profiles/minikube/client.key
 ```
 
 ### Kubernetes Dashboard
@@ -107,8 +111,8 @@ preferences: {}
 users:
 - name: minikube
   user:
-    client-certificate: /home/jenkins/minikube/profiles/minikube/client.crt
-    client-key: /home/jenkins/minikube/profiles/minikube/client.key
+    client-certificate: /home/jenkins/minikube/client.crt
+    client-key: /home/jenkins/minikube/client.key
 ```
 
 ### Kubernetes Cloud
@@ -131,14 +135,14 @@ Config Clouds > 新增雲，選擇 Kubernetes
     * Docker image: jenkins/jnlp-slave:latest
     * Working directory: /home/jenkins/
 * Volumes: 
-    * Host path: /home/docker/minikube/
+    * Config Map name: minikubeconfig
     * Mount path: /home/jenkins/minikube/
 
 ![](https://i.imgur.com/ZycT7IC.png)
 ![](https://i.imgur.com/jnhpiOL.png)
 ![](https://i.imgur.com/kkpVYkn.png)
 ![](https://i.imgur.com/S1OyEYv.png)
-![](https://i.imgur.com/Ugtdfo5.png)
+![](https://i.imgur.com/jXJvL0W.png)
 ![](https://i.imgur.com/PtiiXWq.png)
 
 
